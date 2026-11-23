@@ -14,7 +14,7 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   html,body{height:100%;background:#111;color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh;overflow:hidden;}
   
-  /* Telefon Çerçevesi (Tam Ekran İçin) */
+  /* Telefon Çerçevesi */
   .phone{
     width:390px;max-width:100%;height:844px;max-height:96vh;background:var(--bg);
     border-radius:44px;overflow:hidden;position:relative;border:8px solid #222;
@@ -32,10 +32,13 @@
     flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; padding-bottom:110px; padding-top: 20px;
   }
   .scroll::-webkit-scrollbar{display:none;}
+  
+  /* StatusBar Tamamen Gizlendi */
+  .statusbar { display: none !important; }
 
   /* 1. GİRİŞ EKRANI */
   #pin { background: #000; display: flex; flex-direction: column; align-items: center; }
-  .pin-content { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 60px; flex: 1;}
+  .pin-content { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 80px; flex: 1;}
   .lock-box { position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
   .lock-icon { font-size: 46px; color: #555; line-height: 1; }
   .lock-stars { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; }
@@ -163,9 +166,6 @@
 
   /* Tawk.to'nun varsayılan balonunu engelle */
   iframe[title="chat widget"], .tawk-min-container, .tawk-max-container { display: none !important; opacity: 0 !important; pointer-events: none !important; }
-  
-  /* Tüm statusbar div'lerini gizle (Kod içinde kalabilir ama görünmez) */
-  .statusbar { display: none !important; }
 </style>
 </head>
 <body>
@@ -468,8 +468,7 @@
 
   document.getElementById('homeTx').innerHTML = txList.map(txHtml).join('');
 
-  // Saat karmaşasını tamamen silmek için JS'deki saati kaldırdım.
-  // Gerçek mobil uygulamada saati işletim sistemi gösterir.
+  // Saat JS kodu tamamen silindi. Telefonun kendi saati görünecek.
 
   let entered = '';
   function pinPress(d){
