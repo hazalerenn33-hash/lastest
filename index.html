@@ -37,6 +37,7 @@
   .statusbar{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:15px;font-weight:500;flex-shrink:0;position:relative;}
   .notch { position:absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 32px; background: #000; border-radius: 20px; z-index: 1; }
   .statusbar span { z-index: 2; }
+  .statusbar .right { display: flex; gap: 6px; align-items: center;}
 
   /* 1. GİRİŞ EKRANI */
   #pin { background: #000; display: flex; flex-direction: column; align-items: center; }
@@ -99,9 +100,8 @@
   .tab.on { color:#fff; }
   .tab.on .svg-icon { stroke: #fff; }
   
-  /* YÜZEN BUTON (FAB) */
+  /* YÜZEN BUTON (FAB) - Temizlendi, sadece ikon var */
   .fab { position:absolute; right:20px; bottom:100px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #E6007E, #7A2FF2); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(230,0,126,0.4); cursor:pointer; z-index:15; color:#fff;}
-  .fab .bdg { position:absolute; top:-2px; right:-2px; background:#7A2FF2; border-radius:50%; min-width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; border:2px solid #000;}
 
   /* AI CHAT EKRANI */
   #ai_chat_screen { background: #09090B; }
@@ -177,7 +177,7 @@
   <!-- 1. GİRİŞ EKRANI -->
   <div class="screen active" id="pin">
     <div class="statusbar">
-      <span id="clock1">20:18</span>
+      <span class="dynamic-clock">20:18</span>
       <div class="notch"></div>
       <span class="right">📶 5G 🔋</span>
     </div>
@@ -214,7 +214,7 @@
 
   <!-- 2. ANA EKRAN (HOME) -->
   <div class="screen" id="home">
-    <div class="statusbar"><span id="clock2">20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="scroll">
       <div class="topbar">
         <div class="avatar" onclick="showScreen('profile')">AR</div>
@@ -250,10 +250,9 @@
       </div>
     </div>
     
-    <!-- YÜZEN BUTON (AI Chat'i Açar) -->
+    <!-- YÜZEN BUTON (Temiz, Sadece İkon) -->
     <div class="fab" onclick="showScreen('ai_chat_screen')">
-      <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-      <div class="bdg">4</div>
+      <svg class="svg-icon" style="width:28px;height:28px;stroke:#fff; stroke-width: 2;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </div>
     
     <div class="tabbar-wrapper">
@@ -267,7 +266,7 @@
 
   <!-- 3. KONTEN EKRANI -->
   <div class="screen" id="konten">
-    <div class="statusbar"><span id="clock3">20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
     <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Konten</div></div>
     <div class="scroll">
@@ -304,7 +303,7 @@
 
   <!-- 4. AI CHAT EKRANI -->
   <div class="screen" id="ai_chat_screen">
-    <div class="statusbar"><span id="clockAI">20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     
     <div class="ai-header">
       <div class="closeBtn" onclick="showScreen('home')">✕</div>
@@ -334,7 +333,7 @@
             <span>📎</span>
             <span>🎤</span>
           </div>
-          <!-- Canlı Desteğe Geçiş Butonu -->
+          <!-- Canlı Desteğe Geçiş -->
           <button class="voiceBtn" onclick="openTawk()">🎤 Reden</button>
         </div>
       </div>
@@ -346,7 +345,7 @@
 
   <!-- 5. AUSGABEN EKRANI -->
   <div class="screen" id="ausgaben">
-    <div class="statusbar"><span>20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
     <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Ausgaben</div></div>
     <div class="scroll"><div class="card" style="margin-top:20px;"><div class="cardTitle">Deine Ausgaben</div><div style="color:#888;margin-top:10px;">Keine neuen Ausgaben vorhanden.</div></div></div>
@@ -361,7 +360,7 @@
 
   <!-- 6. EINNAHMEN EKRANI -->
   <div class="screen" id="einnahmen">
-    <div class="statusbar"><span>20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
     <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Einnahmen</div></div>
     <div class="scroll"><div class="card" style="margin-top:20px;"><div class="cardTitle">Deine Einnahmen</div><div style="color:#888;margin-top:10px;">Keine neuen Einnahmen vorhanden.</div></div></div>
@@ -376,7 +375,7 @@
 
   <!-- 7. MEHR EKRANI -->
   <div class="screen" id="mehr">
-    <div class="statusbar"><span>20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     
     <div class="closeBtn" onclick="showScreen('home')"><svg class="svg-icon" style="width:20px;height:20px;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
     <div class="sectionTitle">Mein Unternehmen</div>
@@ -440,7 +439,7 @@
 
   <!-- 8. PROFİL EKRANI -->
   <div class="screen" id="profile">
-    <div class="statusbar"><span>20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div>
     <div class="profile-header">
         <div class="profile-avatar">AR</div>
@@ -450,11 +449,11 @@
     <div class="logout-btn" onclick="showScreen('pin')">Abmelden</div>
   </div>
 
-  <!-- 9. TAWK.TO EKRANI (Canlı Destek) -->
+  <!-- 9. TAWK.TO EKRANI -->
   <div class="screen" id="tawk_screen">
-    <div class="statusbar"><span>20:18</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span class="dynamic-clock">20:18</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar">
-        <div class="closeBtn" onclick="showScreen('home')">‹</div>
+        <div class="closeBtn" onclick="showScreen('ai_chat_screen')">‹</div>
         <div style="font-size:16px; font-weight:600; color:#fff;">Live Support</div>
         <div style="width:44px;"></div>
     </div>
@@ -482,15 +481,11 @@
 
   document.getElementById('homeTx').innerHTML = txList.map(txHtml).join('');
 
-  // Saat Güncelleme (Tüm Statik Saatler İçin)
+  // TEK BİR DİNAMİK SAAT GÜNCELLEMESİ (Tüm statikleri silip tek yerden günceller)
   function updateClock(){
     let now = new Date();
     let timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-    document.querySelectorAll('.statusbar span:first-child').forEach(c => {
-        if(!c.classList.contains('right')) {
-            c.innerText = timeStr;
-        }
-    });
+    document.querySelectorAll('.dynamic-clock').forEach(c => c.innerText = timeStr);
   }
   setInterval(updateClock, 1000);
   updateClock();
@@ -513,7 +508,7 @@
     document.getElementById(id).classList.add('active');
   }
 
-  // YAPAY ZEKA MANTIĞI
+  // AI MANTIĞI
   function askAI(question) {
     document.getElementById('aiSuggestions').style.display = 'none';
     let chatBox = document.getElementById('chatMessages');
@@ -546,7 +541,7 @@
     askAI(val);
   }
 
-  // TAWK.TO'YU AÇAN FONKSİYON (Hem AI ekranındaki buton hem de profil için)
+  // TAWK.TO BAĞLANTISI (Canlı Destek)
   function openTawk() {
     showScreen('tawk_screen');
     if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
@@ -558,8 +553,8 @@
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_6b00a78bdf869c3c91429e71';
 
-// Tawk.to'nun sayfayı ele geçirmesini ve kendi balonunu göstermesini engelle
 Tawk_API.onLoad = function(){
+    // Tawk.to'nun kendi tasarımımızı bozmasını engelle
     Tawk_API.hideWidget(); 
 };
 
