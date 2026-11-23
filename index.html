@@ -100,7 +100,7 @@
   .tab.on { color:#fff; }
   .tab.on .svg-icon { stroke: #fff; }
   
-  /* YÜZEN BUTON (FAB) - Temizlendi, sadece ikon var */
+  /* YÜZEN BUTON (FAB) */
   .fab { position:absolute; right:20px; bottom:100px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #E6007E, #7A2FF2); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(230,0,126,0.4); cursor:pointer; z-index:15; color:#fff;}
 
   /* AI CHAT EKRANI */
@@ -290,6 +290,14 @@
       <div style="padding:0 20px; margin-top: 20px;">
         <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; cursor:pointer;">Neues Wallet oder neue Währung</div>
         <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; margin-top:12px; cursor:pointer;">Meine Bank verbinden</div>
+        <div style="color:#666; font-size:12px; text-align:center; margin-top:16px; line-height:1.5;">Sicheres Importieren von Konten und Angaben von<br>deinen Banken in ein einziges Finom-Dashboard</div>
+      </div>
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="cardTitle">Investitionen</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+            <div style="color:#888; font-size:14px; line-height:1.4;">Verwandle ungenutztes Kapital in<br>marktübliche Renditen</div>
+            <div style="font-size:36px;">📈</div>
+        </div>
       </div>
     </div>
     <div class="tabbar-wrapper">
@@ -333,7 +341,6 @@
             <span>📎</span>
             <span>🎤</span>
           </div>
-          <!-- Canlı Desteğe Geçiş -->
           <button class="voiceBtn" onclick="openTawk()">🎤 Reden</button>
         </div>
       </div>
@@ -481,7 +488,7 @@
 
   document.getElementById('homeTx').innerHTML = txList.map(txHtml).join('');
 
-  // TEK BİR DİNAMİK SAAT GÜNCELLEMESİ (Tüm statikleri silip tek yerden günceller)
+  // TEK BİR DİNAMİK SAAT GÜNCELLEMESİ
   function updateClock(){
     let now = new Date();
     let timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
@@ -541,7 +548,7 @@
     askAI(val);
   }
 
-  // TAWK.TO BAĞLANTISI (Canlı Destek)
+  // TAWK.TO BAĞLANTISI
   function openTawk() {
     showScreen('tawk_screen');
     if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
@@ -554,7 +561,6 @@
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_6b00a78bdf869c3c91429e71';
 
 Tawk_API.onLoad = function(){
-    // Tawk.to'nun kendi tasarımımızı bozmasını engelle
     Tawk_API.hideWidget(); 
 };
 
