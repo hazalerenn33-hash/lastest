@@ -27,7 +27,7 @@
   }
   .screen.active{display:flex;}
   
-  /* Kaydırma alanı (İçerikler için) */
+  /* Kaydırma alanı */
   .scroll{
     flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; padding-bottom:110px;
   }
@@ -38,7 +38,7 @@
   .notch { position:absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 32px; background: #000; border-radius: 20px; z-index: 1; }
   .statusbar span { z-index: 2; }
 
-  /* 1. GİRİŞ EKRANI (BİREBİR) */
+  /* 1. GİRİŞ EKRANI */
   #pin { background: #000; display: flex; flex-direction: column; align-items: center; }
   .pin-content { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 40px; flex: 1;}
   
@@ -88,6 +88,9 @@
   .txAmt.in { color:var(--green);}
   .txDate { color:#777; font-size:13px; margin-top:2px;}
   .divider { height:1px; background:#2A2A2E; margin:8px 0;}
+  .cardRow { display:flex; align-items:center; padding:14px 0; gap:14px;}
+  .cName { font-size:17px; font-weight:500;}
+  .cType { color:#888; font-size:14px; margin-top:2px;}
 
   /* TAB BAR */
   .tabbar-wrapper {
@@ -127,7 +130,7 @@
   .msg-ai-actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; color: #666; font-size: 18px;}
   .msg-ai-actions .time { font-size: 12px; color: #555; margin-left: auto;}
   
-  .ai-input-area { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px 20px; background: #09090B;}
+  .ai-input-area { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px 30px; background: #09090B;}
   .ai-input-box { border: 1px solid #2A2A2E; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #141416;}
   .ai-input-box input { background: transparent; border: none; color: #fff; font-size: 16px; outline: none; padding: 4px;}
   .ai-input-box .bottom { display: flex; justify-content: space-between; align-items: center;}
@@ -136,10 +139,21 @@
   
   .legal-text { text-align: center; color: #666; font-size: 11px; line-height: 1.4; margin-top: 16px; padding: 0 10px;}
 
-  /* TAWK.TO GİZLİ EKRAN */
+  /* KONTEN EKRANI EKSTRALARI */
+  .zinsBanner { background:linear-gradient(135deg, #3A1230 0%, #2A0D22 100%); border-radius:16px; padding:20px; margin:20px 20px 0; display:flex; align-items:center; gap:12px;}
+  
+  /* PROFİL EKRANI */
+  #profile { background: var(--bg); }
+  .profile-header { display: flex; flex-direction: column; align-items: center; padding: 20px; margin-top: 10px;}
+  .profile-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--accentSoft); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--accent); margin-bottom: 16px; position: relative;}
+  .profile-name { font-size: 24px; font-weight: 700; }
+  .profile-email { font-size: 14px; color: var(--text2); margin-top: 4px; }
+  .logout-btn { margin: 20px; background: rgba(230,0,126,0.1); color: var(--accent); border: 1px solid rgba(230,0,126,0.3); border-radius: 16px; padding: 16px; text-align: center; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px;}
+
+  /* TAWK.TO EKRANI */
   #tawk_screen { background: #141416; z-index: 100; }
   #tawk_6b00a78bdf869c3c91429e71 { width: 100%; height: 100%; border: none; }
-  
+
   /* Tawk.to'nun kendi kendine açılmasını ve balonlarını %100 engelleyen CSS */
   iframe[title="chat widget"], .tawk-min-container, .tawk-max-container { display: none !important; opacity: 0 !important; pointer-events: none !important; }
 </style>
@@ -147,7 +161,7 @@
 <body>
 <div class="phone">
 
-  <!-- 1. GİRİŞ EKRANI (BİREBİR) -->
+  <!-- 1. GİRİŞ EKRANI -->
   <div class="screen active" id="pin">
     <div class="statusbar">
       <span id="clock1">15:33</span>
@@ -237,7 +251,37 @@
     </div>
   </div>
 
-  <!-- 3. AI CHAT EKRANI -->
+  <!-- 3. KONTEN EKRANI -->
+  <div class="screen" id="konten">
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
+    <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Konten</div></div>
+    <div class="scroll">
+      <div class="card" style="margin:20px 20px 0; padding-bottom: 0;">
+        <div class="cardHead"><div class="balLabel" style="margin:0;">Gesamtsaldo</div></div>
+        <div class="balValue" style="padding:0; font-size:36px;">137,69 €</div>
+        <div class="cardRow" style="margin-top:16px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:var(--accentSoft);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:22px;">F</div>
+          <div style="flex:1"><div class="cName" style="font-size:18px;">Main</div><div class="cType">DE05 1001 8…65 9881 86</div></div>
+          <div class="cName" style="font-weight:600">137,69 €</div><span style="color:#555;margin-left:6px">›</span>
+        </div>
+        <div class="chip" style="margin:16px 0 16px;background:#232326;"><svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Alle Wallets & Banken</div>
+      </div>
+      <div style="padding:0 20px; margin-top: 20px;">
+        <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; cursor:pointer;">Neues Wallet oder neue Währung</div>
+        <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; margin-top:12px; cursor:pointer;">Meine Bank verbinden</div>
+      </div>
+    </div>
+    <div class="tabbar-wrapper">
+      <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
+      <div class="tab on" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
+      <div class="tab" onclick="showScreen('ausgaben')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>Ausgaben</div>
+      <div class="tab" onclick="showScreen('einnahmen')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline></svg>Einnahmen</div>
+      <div class="tab" onclick="showScreen('mehr')"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Mehr</div>
+    </div>
+  </div>
+
+  <!-- 4. AI CHAT EKRANI -->
   <div class="screen" id="ai_chat_screen">
     <div class="statusbar"><span id="clockAI">15:33</span><span class="right">📶 5G 🔋</span></div>
     
@@ -278,7 +322,62 @@
     </div>
   </div>
 
-  <!-- 4. TAWK.TO CANLI DESTEK EKRANI -->
+  <!-- 5. AUSGABEN EKRANI -->
+  <div class="screen" id="ausgaben">
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
+    <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Ausgaben</div></div>
+    <div class="scroll"><div class="card" style="margin-top:20px;"><div class="cardTitle">Deine Ausgaben</div><div style="color:#888;margin-top:10px;">Keine neuen Ausgaben vorhanden.</div></div></div>
+    <div class="tabbar-wrapper">
+      <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
+      <div class="tab" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
+      <div class="tab on" onclick="showScreen('ausgaben')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>Ausgaben</div>
+      <div class="tab" onclick="showScreen('einnahmen')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline></svg>Einnahmen</div>
+      <div class="tab" onclick="showScreen('mehr')"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Mehr</div>
+    </div>
+  </div>
+
+  <!-- 6. EINNAHMEN EKRANI -->
+  <div class="screen" id="einnahmen">
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
+    <div style="padding:10px 20px 0;"><div style="font-size:28px;font-weight:700">Einnahmen</div></div>
+    <div class="scroll"><div class="card" style="margin-top:20px;"><div class="cardTitle">Deine Einnahmen</div><div style="color:#888;margin-top:10px;">Keine neuen Einnahmen vorhanden.</div></div></div>
+    <div class="tabbar-wrapper">
+      <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
+      <div class="tab" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
+      <div class="tab" onclick="showScreen('ausgaben')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>Ausgaben</div>
+      <div class="tab on" onclick="showScreen('einnahmen')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline></svg>Einnahmen</div>
+      <div class="tab" onclick="showScreen('mehr')"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Mehr</div>
+    </div>
+  </div>
+
+  <!-- 7. MEHR EKRANI -->
+  <div class="screen" id="mehr">
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
+    <div class="closeBtn" onclick="showScreen('home')">✕</div>
+    <div class="sectionTitle">Mein Unternehmen</div>
+    <div class="scroll">
+      <div class="menuGroup" style="margin-top:20px;">
+        <div class="menuItem" onclick="showScreen('profile')">Persönliche Informationen ›</div>
+        <div class="menuItem">Sicherheit ›</div>
+        <div class="menuItem">Benachrichtigungen ›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. PROFİL EKRANI -->
+  <div class="screen" id="profile">
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div>
+    <div class="profile-header">
+        <div class="profile-avatar">AR</div>
+        <div class="profile-name">Atakan Rallas</div>
+    </div>
+    <div class="logout-btn" onclick="showScreen('pin')">Abmelden</div>
+  </div>
+
+  <!-- 9. TAWK.TO EKRANI -->
   <div class="screen" id="tawk_screen">
     <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar">
@@ -288,14 +387,6 @@
     </div>
     <div id='tawk_6b00a78bdf869c3c91429e71' style="flex:1; width:100%; height:100%;"></div>
   </div>
-
-  <!-- 5-9. BOŞ SAYFALAR (Sekmeler çalışsın diye eklendi) -->
-  <div class="screen" id="txs"><div class="statusbar"><span>15:33</span></div><div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div><div style="padding:20px;font-size:30px;font-weight:700;">Transaktionen</div></div>
-  <div class="screen" id="konten"><div class="statusbar"><span>15:33</span></div><div style="padding:20px;font-size:30px;font-weight:700;">Konten</div></div>
-  <div class="screen" id="ausgaben"><div class="statusbar"><span>15:33</span></div><div style="padding:20px;font-size:30px;font-weight:700;">Ausgaben</div></div>
-  <div class="screen" id="einnahmen"><div class="statusbar"><span>15:33</span></div><div style="padding:20px;font-size:30px;font-weight:700;">Einnahmen</div></div>
-  <div class="screen" id="mehr"><div class="statusbar"><span>15:33</span></div><div style="padding:20px;font-size:30px;font-weight:700;">Mehr</div></div>
-  <div class="screen" id="profile"><div class="statusbar"><span>15:33</span></div><div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div><div style="padding:20px;font-size:30px;font-weight:700;">Profil</div></div>
 
 </div>
 
