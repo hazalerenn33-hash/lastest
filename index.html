@@ -14,6 +14,7 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   html,body{height:100%;background:#000;color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh;}
   
+  /* Telefon Çerçevesi */
   .phone{
     width:390px;max-width:100%;height:844px;max-height:96vh;background:var(--bg);
     border-radius:44px;overflow:hidden;position:relative;border:8px solid #222;
@@ -26,7 +27,7 @@
   
   .statusbar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:14px;font-weight:600;flex-shrink:0;z-index:10;}
   
-  /* 1. PIN EKRANI (Birebir) */
+  /* 1. PIN EKRANI */
   #pin { background: radial-gradient(circle at 50% 20%, #5c1734 0%, #1a0610 40%, #000 80%); }
   .pin-content { display:flex;flex-direction:column;align-items:center;flex:1;width:100%;padding-top:50px;}
   .lock-icon { font-size:40px; color:rgba(255,255,255,0.4); position:relative; margin-bottom: 30px;}
@@ -111,10 +112,6 @@
 
   /* KONTEN EKRANI EKSTRALARI */
   .zinsBanner { background:linear-gradient(135deg, #3A1230 0%, #2A0D22 100%); border-radius:16px; padding:20px; margin:20px 20px 0; display:flex; align-items:center; gap:12px;}
-  .zinsTitle { font-size:18px;font-weight:600; color:#fff; }
-  .zinsTitle span { color:var(--accent); }
-  .zinsDesc { color:#ccc;font-size:13px;margin-top:8px; line-height: 1.4;}
-  .investmentBox { background:#141416; border-radius:16px; padding:20px; margin:20px 20px 0; display: flex; justify-content: space-between; align-items: center;}
   
   /* PROFİL EKRANI */
   #profile { background: var(--bg); }
@@ -124,6 +121,11 @@
   .profile-name { font-size: 24px; font-weight: 700; }
   .profile-email { font-size: 14px; color: var(--text2); margin-top: 4px; }
   .logout-btn { margin: 20px; background: rgba(230,0,126,0.1); color: var(--accent); border: 1px solid rgba(230,0,126,0.3); border-radius: 16px; padding: 16px; text-align: center; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px;}
+
+  /* TAWK.TO EMBEDDED CHAT EKRANI */
+  #tawk_screen { background: #fff; }
+  #tawk_screen .topbar { background: #141416; color: #fff; border-bottom: 1px solid #222; padding: 12px 20px; }
+  #tawk_6b00a78bdf869c3c91429e71 { width: 100%; height: 100%; border: none; }
 </style>
 </head>
 <body>
@@ -202,7 +204,8 @@
       <div style="padding:20px; font-size:32px; font-weight:800;">36% <span style="font-size:16px;color:#888;font-weight:400">Effizienz</span></div>
     </div>
     
-    <div class="fab" onclick="openTawkChat()">
+    <!-- Tawk.to Canlı Desteği Açan Buton -->
+    <div class="fab" onclick="showScreen('tawk_screen')">
       <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
       <div class="bdg">5</div>
     </div>
@@ -251,7 +254,6 @@
         </div>
         <div class="chip" style="margin:16px 0 16px;background:#232326;"><svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Alle Wallets & Banken</div>
         
-        <!-- Zinskonto Banner (Birebir) -->
         <div style="margin:0 -18px; background: #3A1230; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding: 20px 18px; display: flex; align-items: center; justify-content: space-between;">
             <div>
                 <div style="font-size:18px; font-weight:600; color:#fff;">Verdienen mit dem <span style="color:var(--accent)">Zinskonto</span></div>
@@ -276,7 +278,7 @@
       </div>
     </div>
 
-    <div class="fab" onclick="openTawkChat()">
+    <div class="fab" onclick="showScreen('tawk_screen')">
       <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
       <div class="bdg">5</div>
     </div>
@@ -318,7 +320,7 @@
     </div>
   </div>
 
-  <!-- 7. MEIN UNTERNEHMEN (MEHR) - Birebir Görsel 1 -->
+  <!-- 7. MEIN UNTERNEHMEN -->
   <div class="screen" id="mehr">
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
     
@@ -445,6 +447,18 @@
     </div>
   </div>
 
+  <!-- 9. TAWK.TO EMBEDDED CHAT EKRANI -->
+  <div class="screen" id="tawk_screen">
+    <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar">
+        <div class="closeBtn" onclick="showScreen('home')">‹</div>
+        <div style="font-size:16px; font-weight:600; color:#fff;">Live Chat</div>
+        <div style="width:44px;"></div>
+    </div>
+    <!-- Tawk.to'nun yükleneceği alan -->
+    <div id='tawk_6b00a78bdf869c3c91429e71' style="flex:1; width:100%;"></div>
+  </div>
+
 </div>
 
 <script>
@@ -500,27 +514,20 @@
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
-
-  // Tawk.to Live Chat Entegrasyonu
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  Tawk_API.onLoad = function(){
-      Tawk_API.hideWidget(); // Varsayılan Tawk butonunu gizle
-  };
-  
-  function openTawkChat() {
-      if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-          Tawk_API.maximize(); // Bizim butona tıklayınca Tawk penceresini aç
-      }
-  }
-
-  (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6b00a78bdf869c3c91429e71/1k7t8sulh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_6b00a78bdf869c3c91429e71';
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6b00a78bdf869c3c91429e71/1k84r9qrc';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 </html>
