@@ -14,7 +14,6 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   html,body{height:100%;background:#000;color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh;}
   
-  /* Telefon Çerçevesi */
   .phone{
     width:390px;max-width:100%;height:844px;max-height:96vh;background:var(--bg);
     border-radius:44px;overflow:hidden;position:relative;border:8px solid #222;
@@ -22,67 +21,66 @@
   }
   .screen{position:absolute;inset:0;display:none;flex-direction:column;overflow:hidden;background:var(--bg);}
   .screen.active{display:flex;}
-  .scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:100px;}
+  .scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:110px;}
   .scroll::-webkit-scrollbar{display:none;}
   
-  /* Status Bar */
   .statusbar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:14px;font-weight:600;flex-shrink:0;z-index:10;}
   
-  /* --- PIN EKRANI --- */
+  /* 1. PIN EKRANI (Birebir) */
   #pin { background: radial-gradient(circle at 50% 20%, #5c1734 0%, #1a0610 40%, #000 80%); }
-  .pin-content { display:flex;flex-direction:column;align-items:center;flex:1;width:100%;padding-top:60px;}
-  .lock-icon { font-size:36px; color:rgba(255,255,255,0.4); position:relative;}
-  .lock-star { position:absolute; top:-5px; left:-10px; color:var(--accent); font-size:16px;}
-  .dots { display:flex; gap:26px; margin-top:30px;}
-  .dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2); transition:.15s;}
+  .pin-content { display:flex;flex-direction:column;align-items:center;flex:1;width:100%;padding-top:50px;}
+  .lock-icon { font-size:40px; color:rgba(255,255,255,0.4); position:relative; margin-bottom: 30px;}
+  .lock-star { position:absolute; top:-8px; left:-8px; color:var(--accent); font-size:18px;}
+  .dots { display:flex; gap:24px; margin-bottom:30px;}
+  .dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.15); transition:.15s;}
   .dot.on { background:#fff;}
-  .pin-title { font-size:18px; font-weight:600; margin-top:30px; margin-bottom:10px;}
-  .finom-logo-text { font-family:Arial, sans-serif; font-size:46px; font-weight:900; letter-spacing:-2px; margin-bottom:40px;}
-  .keys { display:grid; grid-template-columns:repeat(3,1fr); width:85%; gap:10px;}
-  .key { height:72px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:500; border-radius:50%; cursor:pointer; color:#fff;}
+  .pin-title { font-size:18px; font-weight:600; margin-bottom:20px;}
+  .finom-logo-text { font-family:Arial, sans-serif; font-size:52px; font-weight:900; letter-spacing:-2px; margin-bottom:50px;}
+  .keys { display:grid; grid-template-columns:repeat(3,1fr); width:82%; gap:15px;}
+  .key { height:74px; display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:400; border-radius:50%; cursor:pointer; color:#fff;}
   .key:active { background:rgba(255,255,255,0.1);}
-  .key .ic { font-size:22px; color:#fff;}
+  .key .ic { font-size:24px; color:#fff;}
 
-  /* --- ORTAK ALANLAR --- */
+  /* ORTAK ALANLAR */
   .topbar { display:flex; align-items:center; justify-content:space-between; padding:8px 20px;}
-  .avatar { width:44px; height:44px; border-radius:50%; border:1px solid #333; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600;}
+  .avatar { width:44px; height:44px; border-radius:50%; border:1px solid #333; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:500; cursor:pointer; transition:0.2s;}
+  .avatar:active { background:#222; }
   .ticons { display:flex; gap:12px;}
   .cicon { width:44px; height:44px; border-radius:50%; background:#1A1A1C; display:flex; align-items:center; justify-content:center; font-size:18px;}
   
-  /* SVG Çizgi İkonlar */
-  .svg-icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .svg-icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   
-  .balLabel { color:var(--text2); font-size:14px; margin-top:20px; padding:0 20px;}
-  .balValue { font-size:40px; font-weight:700; margin-top:4px; padding:0 20px;}
+  .balLabel { color:var(--text2); font-size:15px; margin-top:20px; padding:0 20px;}
+  .balValue { font-size:42px; font-weight:700; margin-top:4px; padding:0 20px; letter-spacing:-1px;}
   .iban { color:var(--text2); font-size:14px; margin-top:8px; display:flex; align-items:center; gap:8px; padding:0 20px;}
   .chip { display:inline-flex; align-items:center; gap:8px; background:#1A1A1C; padding:8px 14px; border-radius:16px; font-size:13px; font-weight:500; margin:16px 20px 0; color:#ccc;}
   
   .actions { display:flex; justify-content:space-between; padding:0 20px; margin-top:20px; gap:10px;}
   .act { flex:1; text-align:center;}
-  .actBtn { height:56px; border-radius:16px; background:#1A1A1C; display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff;}
+  .actBtn { height:60px; border-radius:16px; background:#1A1A1C; display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff;}
   .actBtn.primary { background:#fff; color:#000;}
   .actLabel { font-size:12px; margin-top:8px; color:#ddd;}
   
   .card { background:#141416; border-radius:20px; padding:18px; margin:20px 20px 0;}
   .cardHead { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
-  .cardTitle { font-size:18px; font-weight:600;}
-  .pill { background:#2A2A2E; padding:6px 14px; border-radius:16px; font-size:13px; font-weight:500;}
-  .tx { display:flex; align-items:center; padding:12px 0;}
-  .txIcon { width:40px; height:40px; border-radius:12px; background:#232326; display:flex; align-items:center; justify-content:center; margin-right:14px; color:#999;}
-  .txName { font-size:15px; font-weight:500; flex:1;}
+  .cardTitle { font-size:19px; font-weight:600;}
+  .pill { background:#2A2A2E; padding:6px 14px; border-radius:16px; font-size:13px; font-weight:500; cursor:pointer;}
+  .tx { display:flex; align-items:center; padding:14px 0;}
+  .txIcon { width:44px; height:44px; border-radius:12px; background:#232326; display:flex; align-items:center; justify-content:center; margin-right:14px; color:#999;}
+  .txName { font-size:16px; font-weight:500; flex:1;}
   .txRight { text-align:right;}
-  .txAmt { font-size:15px; font-weight:600;}
+  .txAmt { font-size:16px; font-weight:600;}
   .txAmt.in { color:var(--green);}
-  .txDate { color:#777; font-size:12px; margin-top:2px;}
+  .txDate { color:#777; font-size:13px; margin-top:2px;}
   .divider { height:1px; background:#2A2A2E; margin:8px 0;}
-  .cardRow { display:flex; align-items:center; padding:12px 0; gap:14px;}
-  .cName { font-size:16px; font-weight:500;}
-  .cType { color:#888; font-size:13px; margin-top:2px;}
+  .cardRow { display:flex; align-items:center; padding:14px 0; gap:14px;}
+  .cName { font-size:17px; font-weight:500;}
+  .cType { color:#888; font-size:14px; margin-top:2px;}
 
-  /* --- TAB BAR --- */
+  /* TAB BAR */
   .tabbar-wrapper {
-    position: absolute; bottom: 12px; left: 12px; right: 12px;
-    background: #111113; border-radius: 30px; padding: 12px 0;
+    position: absolute; bottom: 10px; left: 10px; right: 10px;
+    background: #111113; border-radius: 32px; padding: 14px 0;
     display: flex; justify-content: space-around; align-items: center;
     border: 1px solid #222; z-index: 20;
   }
@@ -90,29 +88,42 @@
   .tab.on { color:#fff; }
   .tab.on .svg-icon { stroke: #fff; }
   
-  /* --- FAB (Tawk.to Açıcı) --- */
-  .fab { position:absolute; right:20px; bottom:95px; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, #E6007E, #7A2FF2); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(230,0,126,0.4); cursor:pointer; z-index:15; color:#fff;}
-  .fab .bdg { position:absolute; top:-2px; right:-2px; background:#7A2FF2; border-radius:50%; min-width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; border:2px solid #000;}
+  /* FAB */
+  .fab { position:absolute; right:20px; bottom:100px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #E6007E, #7A2FF2); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(230,0,126,0.4); cursor:pointer; z-index:15; color:#fff;}
+  .fab .bdg { position:absolute; top:-2px; right:-2px; background:#7A2FF2; border-radius:50%; min-width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; border:2px solid #000;}
 
-  /* --- MEIN UNTERNEHMEN --- */
+  /* MEIN UNTERNEHMEN */
   .closeBtn { width:44px; height:44px; border-radius:50%; background:#111; display:flex; align-items:center; justify-content:center; font-size:20px; margin:10px 20px; cursor:pointer;}
-  .sectionTitle { font-size:26px; font-weight:700; margin:10px 20px 20px;}
+  .sectionTitle { font-size:28px; font-weight:700; margin:10px 20px 20px;}
   .companyGrid { display:flex; gap:12px; padding:0 20px; margin-bottom:20px;}
   .companyCard { background:#141416; border-radius:16px; padding:16px; flex:1; border:1px solid #333; position:relative;}
   .companyCard.active { border-color:#555;}
   .companyCard.plus { border:1px dashed #444;}
-  .companyAvatar { width:24px; height:24px; border-radius:50%; background:#E6007E; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; margin-bottom:12px;}
-  .companyName { font-size:14px; font-weight:600; line-height:1.2;}
+  .companyAvatar { width:26px; height:26px; border-radius:50%; background:#E6007E; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; margin-bottom:12px;}
+  .companyName { font-size:14px; font-weight:500; line-height:1.2;}
   .planBanner { background:#141416; border-radius:16px; padding:16px; margin:0 20px 20px; display:flex; align-items:center; gap:14px;}
   .menuGroup { background:#141416; border-radius:16px; margin:0 20px 20px; padding:0 16px;}
-  .menuItem { display:flex; align-items:center; padding:16px 0; gap:16px; border-bottom:1px solid #222; font-size:15px; cursor:pointer;}
+  .menuItem { display:flex; align-items:center; padding:18px 0; gap:16px; border-bottom:1px solid #222; font-size:16px; cursor:pointer;}
   .menuItem:last-child { border-bottom:none;}
   .menuItem .ic { color:#ccc; width:24px; display:flex; justify-content:center;}
   .menuItem .arrow { margin-left:auto; color:#555; font-size:18px;}
   .badgeNew { background:#7A2FF2; color:#fff; font-size:10px; font-weight:700; padding:2px 6px; border-radius:6px; margin-left: auto; margin-right: 8px;}
 
-  /* Basit Ekranlar İçin */
-  .placeholder-text { color: #666; padding: 20px; font-size: 14px; }
+  /* KONTEN EKRANI EKSTRALARI */
+  .zinsBanner { background:linear-gradient(135deg, #3A1230 0%, #2A0D22 100%); border-radius:16px; padding:20px; margin:20px 20px 0; display:flex; align-items:center; gap:12px;}
+  .zinsTitle { font-size:18px;font-weight:600; color:#fff; }
+  .zinsTitle span { color:var(--accent); }
+  .zinsDesc { color:#ccc;font-size:13px;margin-top:8px; line-height: 1.4;}
+  .investmentBox { background:#141416; border-radius:16px; padding:20px; margin:20px 20px 0; display: flex; justify-content: space-between; align-items: center;}
+  
+  /* PROFİL EKRANI */
+  #profile { background: var(--bg); }
+  .profile-header { display: flex; flex-direction: column; align-items: center; padding: 20px; margin-top: 10px;}
+  .profile-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--accentSoft); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--accent); margin-bottom: 16px; position: relative;}
+  .profile-avatar .edit-badge { position: absolute; bottom: 0; right: 0; width: 28px; height: 28px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid var(--bg); color: #fff; cursor: pointer;}
+  .profile-name { font-size: 24px; font-weight: 700; }
+  .profile-email { font-size: 14px; color: var(--text2); margin-top: 4px; }
+  .logout-btn { margin: 20px; background: rgba(230,0,126,0.1); color: var(--accent); border: 1px solid rgba(230,0,126,0.3); border-radius: 16px; padding: 16px; text-align: center; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px;}
 </style>
 </head>
 <body>
@@ -148,7 +159,7 @@
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
     <div class="scroll">
       <div class="topbar">
-        <div class="avatar">AR</div>
+        <div class="avatar" onclick="showScreen('profile')">AR</div>
         <div class="ticons">
           <div class="cicon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
           <div class="cicon"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
@@ -161,7 +172,7 @@
       <div class="chip"><svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Alle Konten</div>
       
       <div class="actions">
-        <div class="act"><div class="actBtn primary" style="font-size:26px; font-weight:300;">＋</div><div class="actLabel">Einzahlen</div></div>
+        <div class="act"><div class="actBtn primary" style="font-size:28px; font-weight:300;">＋</div><div class="actLabel">Einzahlen</div></div>
         <div class="act"><div class="actBtn"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div><div class="actLabel">Überweisen</div></div>
         <div class="act"><div class="actBtn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div><div class="actLabel">Hochladen</div></div>
         <div class="act"><div class="actBtn"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></div><div class="actLabel">Mehr</div></div>
@@ -176,12 +187,23 @@
         <div class="cardHead"><div class="cardTitle">Karten</div><div class="pill">Alle</div></div>
         <div class="cardRow"><div style="width:44px;height:30px;background:#ccc;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;font-style:italic;color:#000">VISA</div><div style="flex:1"><div class="cName">Physical</div><div class="cType">Debit, ·· 7867</div></div><span style="color:#555">›</span></div>
         <div class="cardRow"><div style="width:44px;height:30px;background:#E6007E;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;font-style:italic;color:#fff">VISA</div><div style="flex:1"><div class="cName">Virtual</div><div class="cType">Debit, Einsatzbereit</div></div><span style="color:#555">›</span></div>
+        <div class="divider"></div>
+        <div class="cardRow"><div class="cicon" style="width:44px;height:44px"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M16 8l-8 8"></path><path d="M8 8l8 8"></path></svg></div><div class="cName" style="flex:1">Cashback-Saldo</div><div class="cName">61,83 €</div><span style="color:#555">›</span></div>
       </div>
+
+      <div class="card">
+        <div class="cardHead"><div class="cardTitle">Cashflow-Prognose: <span style="color:var(--blue)">7 Tage</span></div><div class="pill">0</div></div>
+        <div class="cardRow"><div style="flex:1;color:#aaa">Außenstände</div><div style="font-weight:600">0 €</div></div>
+        <div class="cardRow"><div style="flex:1;color:#aaa">Verbindlichkeiten</div><div style="font-weight:600">0 €</div></div>
+        <div class="divider"></div>
+        <div class="cardRow"><div style="flex:1;color:#aaa">Erwarteter Kontostand für 30 Nov.</div><div style="font-weight:600">100.000,00 €</div></div>
+      </div>
+
+      <div style="padding:20px; font-size:32px; font-weight:800;">36% <span style="font-size:16px;color:#888;font-weight:400">Effizienz</span></div>
     </div>
     
-    <!-- Tawk.to Canlı Desteği Açan Buton -->
     <div class="fab" onclick="openTawkChat()">
-      <svg class="svg-icon" style="width:24px;height:24px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
       <div class="bdg">5</div>
     </div>
     
@@ -199,7 +221,7 @@
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px 8px">
-      <div style="font-size:28px;font-weight:700">Transaktionen</div>
+      <div style="font-size:30px;font-weight:700">Transaktionen</div>
     </div>
     <div class="scroll" style="padding:0 20px;">
       <div style="color:#888;font-size:12px;font-weight:700;letter-spacing:1px;margin:18px 0 6px">HEUTE, 23 NOVEMBER</div>
@@ -213,38 +235,66 @@
   <div class="screen" id="konten">
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar">
-      <div class="avatar">AR</div>
+      <div class="avatar" onclick="showScreen('profile')">AR</div>
       <div class="ticons"><div class="cicon"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><div class="cicon"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div></div>
     </div>
-    <div style="padding:20px 20px 0;"><div style="font-size:28px;font-weight:700">Konten</div></div>
+    <div style="padding:20px 20px 0;"><div style="font-size:30px;font-weight:700">Konten</div></div>
     
     <div class="scroll">
-      <div class="card" style="margin:20px 20px 0;">
+      <div class="card" style="margin:20px 20px 0; padding-bottom: 0;">
         <div class="cardHead"><div class="balLabel" style="margin:0;">Gesamtsaldo</div><span style="color:#888"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span></div>
-        <div class="balValue" style="padding:0; font-size:36px;">100.000,00 €</div>
+        <div class="balValue" style="padding:0; font-size:38px;">100.000,00 €</div>
         <div class="cardRow" style="margin-top:16px;">
-          <div style="width:46px;height:46px;border-radius:12px;background:var(--accentSoft);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:20px;">F</div>
+          <div style="width:46px;height:46px;border-radius:12px;background:var(--accentSoft);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:22px;">F</div>
           <div style="flex:1"><div class="cName" style="font-size:18px;">Main</div><div class="cType">DE05 1001 8…65 9881 86</div></div>
-          <div class="cName">100.000,00 €</div><span style="color:#555;margin-left:6px">›</span>
+          <div class="cName" style="font-weight:600">100.000,00 €</div><span style="color:#555;margin-left:6px">›</span>
         </div>
-        <div class="chip" style="margin:16px 0 0;background:#232326;"><svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Alle Wallets & Banken</div>
+        <div class="chip" style="margin:16px 0 16px;background:#232326;"><svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Alle Wallets & Banken</div>
+        
+        <!-- Zinskonto Banner (Birebir) -->
+        <div style="margin:0 -18px; background: #3A1230; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding: 20px 18px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+                <div style="font-size:18px; font-weight:600; color:#fff;">Verdienen mit dem <span style="color:var(--accent)">Zinskonto</span></div>
+                <div style="color:#ccc; font-size:13px; margin-top:8px; line-height:1.4;">So steigerst Du Dein Erspartes um bis zu<br><b style="color:#fff">1,5%</b> p.a.<br>Keine Sperrfrist, jederzeit verfügbar.</div>
+            </div>
+            <div style="font-size:40px; filter: drop-shadow(0 4px 10px rgba(230,0,126,0.5));">🏷️</div>
+        </div>
       </div>
 
-      <div style="background:var(--accentSoft); border-radius:16px; padding:16px; margin:20px 20px 0; display:flex; align-items:center; gap:12px;">
-        <div style="flex:1;">
-          <div style="font-size:18px;font-weight:700">Verdienen mit dem <span style="color:var(--accent)">Zinskonto</span></div>
-          <div style="color:#ccc;font-size:13px;margin-top:6px">So steigerst Du Dein Erspartes um bis zu <b style="color:#fff">1,5%</b> p.a.<br>Keine Sperrfrist, jederzeit verfügbar.</div>
-        </div>
-        <div style="font-size:36px;">🏷️</div>
+      <div style="padding:0 20px; margin-top: 20px;">
+        <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; cursor:pointer;">Neues Wallet oder neue Währung</div>
+        <div style="background:#1A1A1C; border-radius:16px; padding:18px; text-align:center; font-size:16px; font-weight:500; margin-top:12px; cursor:pointer;">Meine Bank verbinden</div>
+        <div style="color:#666; font-size:12px; text-align:center; margin-top:16px; line-height:1.5;">Sicheres Importieren von Konten und Angaben von<br>deinen Banken in ein einziges Finom-Dashboard</div>
       </div>
+
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="cardTitle">Investitionen</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+            <div style="color:#888; font-size:14px; line-height:1.4;">Verwandle ungenutztes Kapital in<br>marktübliche Renditen</div>
+            <div style="font-size:36px;">📈</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fab" onclick="openTawkChat()">
+      <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <div class="bdg">5</div>
+    </div>
+    
+    <div class="tabbar-wrapper">
+      <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
+      <div class="tab on" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
+      <div class="tab" onclick="showScreen('ausgaben')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>Ausgaben</div>
+      <div class="tab" onclick="showScreen('einnahmen')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline></svg>Einnahmen</div>
+      <div class="tab" onclick="showScreen('mehr')"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Mehr</div>
     </div>
   </div>
 
   <!-- 5. AUSGABEN -->
   <div class="screen" id="ausgaben">
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="avatar">AR</div></div>
-    <div style="padding:20px;"><div style="font-size:28px;font-weight:700">Ausgaben</div><div class="placeholder-text">Hier werden die Ausgaben angezeigt.</div></div>
+    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
+    <div style="padding:20px;"><div style="font-size:30px;font-weight:700">Ausgaben</div><div style="color:#666; padding:20px 0; font-size:14px;">Hier werden die Ausgaben angezeigt.</div></div>
     <div class="tabbar-wrapper">
       <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
       <div class="tab" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
@@ -257,8 +307,8 @@
   <!-- 6. EINNAHMEN -->
   <div class="screen" id="einnahmen">
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="avatar">AR</div></div>
-    <div style="padding:20px;"><div style="font-size:28px;font-weight:700">Einnahmen</div><div class="placeholder-text">Hier werden die Einnahmen angezeigt.</div></div>
+    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
+    <div style="padding:20px;"><div style="font-size:30px;font-weight:700">Einnahmen</div><div style="color:#666; padding:20px 0; font-size:14px;">Hier werden die Einnahmen angezeigt.</div></div>
     <div class="tabbar-wrapper">
       <div class="tab" onclick="showScreen('home')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</div>
       <div class="tab" onclick="showScreen('konten')"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg>Konten</div>
@@ -268,45 +318,78 @@
     </div>
   </div>
 
-  <!-- 7. MEIN UNTERNEHMEN (MEHR) -->
+  <!-- 7. MEIN UNTERNEHMEN (MEHR) - Birebir Görsel 1 -->
   <div class="screen" id="mehr">
     <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
-    <div class="closeBtn" onclick="showScreen('home')">✕</div>
+    
+    <div class="closeBtn" onclick="showScreen('home')"><svg class="svg-icon" style="width:20px;height:20px;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
     <div class="sectionTitle">Mein Unternehmen</div>
 
     <div class="scroll" style="padding-bottom:20px;">
       <div class="companyGrid">
         <div class="companyCard active">
           <div class="companyAvatar">A</div>
-          <div class="companyName">ATAKAN RALLAS</div>
+          <div class="companyName" style="font-weight: 600;">ATAKAN RALLAS</div>
         </div>
         <div class="companyCard plus">
           <div style="font-size:24px; color:#888; margin-bottom:8px;">＋</div>
-          <div class="companyName">Weiteres<br>Unternehmen</div>
+          <div class="companyName" style="line-height: 1.3;">Weiteres<br>Unternehmen</div>
         </div>
       </div>
 
       <div class="planBanner">
-        <div style="font-size:32px;">💎</div>
+        <div style="font-size:36px; transform: rotate(-15deg);">🚀</div>
         <div style="flex:1;">
           <div style="font-size:16px; font-weight:600;">Aktueller Tarif: Smart</div>
           <div style="font-size:13px; color:#888; margin-top:4px;">Tarif & Limits verwalten</div>
         </div>
-        <div style="color:#555; font-size:20px;">›</div>
+        <div style="color:#555; font-size:18px;">›</div>
       </div>
 
       <div class="menuGroup">
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>Unternehmensdaten<div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>Team<div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>Freigabeprozess <span class="badgeNew">New</span><div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>Katalog<div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>Rechtsdokumente<div class="arrow">›</div></div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 7h-9l-2-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg></div>
+            Unternehmensdaten
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+            Team
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+            Freigabeprozess <span class="badgeNew">New</span>
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>
+            Katalog
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+            Rechtsdokumente
+            <div class="arrow">›</div>
+        </div>
       </div>
 
       <div class="menuGroup">
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>Persönliche Informationen<div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>Sicherheit<div class="arrow">›</div></div>
-        <div class="menuItem"><div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>Benachrichtigungen<div class="arrow">›</div></div>
+        <div class="menuItem" onclick="showScreen('profile')">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+            Persönliche Informationen
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+            Sicherheit
+            <div class="arrow">›</div>
+        </div>
+        <div class="menuItem">
+            <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
+            Benachrichtigungen
+            <div class="arrow">›</div>
+        </div>
       </div>
     </div>
 
@@ -319,10 +402,52 @@
     </div>
   </div>
 
+  <!-- 8. PROFİL EKRANI -->
+  <div class="screen" id="profile">
+    <div class="statusbar"><span>12:29</span><span class="right">📶 5G 🔋</span></div>
+    <div class="topbar">
+        <div class="closeBtn" onclick="showScreen('home')">‹</div>
+        <div style="font-size:16px; font-weight:600; color:#888;">Profil</div>
+        <div style="width:44px;"></div>
+    </div>
+
+    <div class="scroll">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                AR
+                <div class="edit-badge">✎</div>
+            </div>
+            <div class="profile-name">Atakan Rallas</div>
+            <div class="profile-email">atakan.rallas@example.com</div>
+        </div>
+
+        <div class="menuGroup" style="margin: 20px;">
+            <div class="menuItem">
+                <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                Persönliche Daten
+                <div class="arrow">›</div>
+            </div>
+            <div class="menuItem">
+                <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                Passwort ändern
+                <div class="arrow">›</div>
+            </div>
+            <div class="menuItem">
+                <div class="ic"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                Einstellungen
+                <div class="arrow">›</div>
+            </div>
+        </div>
+
+        <div class="logout-btn" onclick="showScreen('pin')">
+            Abmelden
+        </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-  // --- Veri (Görsellerden Birebir) ---
   const txList = [
     {name:'Landeshauptkasse Berlin', amt:20, date:'06:10', group:'today', dir:'in'},
     {name:'Cenk berk kazan', amt:-2000, date:'20 Nov.', group:'month', dir:'out'},
@@ -344,7 +469,7 @@
 
   function txHtml(t){
     return `<div class="tx">
-      <div class="txIcon">${t.dir === 'in' ? '↙' : '↗'}</div>
+      <div class="txIcon"><svg class="svg-icon" viewBox="0 0 24 24">${t.dir === 'in' ? '<line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline>' : '<line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>'}</svg></div>
       <div class="txName">${t.name}</div>
       <div class="txRight">
         <div class="txAmt ${t.dir === 'in' ? 'in' : ''}">${money(t.amt)}</div>
@@ -357,7 +482,6 @@
   document.getElementById('txToday').innerHTML = txList.filter(t=>t.group==='today').map(txHtml).join('');
   document.getElementById('txMonth').innerHTML = txList.filter(t=>t.group==='month').map(txHtml).join('');
 
-  // --- PIN ---
   let entered = '';
   function pinPress(d){
     if(entered.length >= 4) return;
@@ -372,27 +496,23 @@
   }
   function unlock(){ entered = ''; renderDots(); showScreen('home'); }
 
-  // --- Navigasyon ---
   function showScreen(id){
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
 
-  // --- Tawk.to Entegrasyonu ---
-  // 1. Tawk.to'nun kendi butonunu gizle (Çünkü bizim özel tasarımımız var)
+  // Tawk.to Live Chat Entegrasyonu
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   Tawk_API.onLoad = function(){
-      Tawk_API.hideWidget(); // Varsayılan Tawk butonunu gizler
+      Tawk_API.hideWidget(); // Varsayılan Tawk butonunu gizle
   };
   
-  // 2. Bizim butona tıklandığında Tawk'ı aç
   function openTawkChat() {
       if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-          Tawk_API.maximize();
+          Tawk_API.maximize(); // Bizim butona tıklayınca Tawk penceresini aç
       }
   }
 
-  // 3. Tawk.to Script Yüklemesi (Sizin verdiğiniz kod)
   (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
