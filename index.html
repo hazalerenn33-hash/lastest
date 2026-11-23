@@ -25,44 +25,38 @@
   .scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:110px;}
   .scroll::-webkit-scrollbar{display:none;}
   
-  /* Dinamik Ada Çentiği Status Bar */
+  /* Status Bar & Çentik */
   .statusbar{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:15px;font-weight:500;flex-shrink:0;z-index:10;position:relative;}
   .notch { position:absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 32px; background: #000; border-radius: 20px; z-index: 1; }
   .statusbar span { z-index: 2; }
-  
+
   /* 1. GİRİŞ EKRANI (BİREBİR GÖRSEL) */
   #pin { background: #000; display: flex; flex-direction: column; align-items: center; }
+  .pin-content { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 40px; }
   
-  .pin-content { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 60px; }
+  .lock-box { position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; }
+  .lock-icon { font-size: 50px; color: #555; line-height: 1; }
+  .lock-stars { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; }
+  .lock-stars span { color: var(--accent); font-size: 22px; line-height: 1; font-weight: bold; }
   
-  /* Kilit İkonu ve Yıldızlar */
-  .lock-box { position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
-  .lock-icon { font-size: 44px; color: #666; }
-  .lock-stars { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; }
-  .lock-stars span { color: var(--accent); font-size: 20px; line-height: 1; font-weight: bold; }
-  
-  /* Noktalar */
-  .dots { display: flex; gap: 32px; margin-bottom: 40px; }
+  .dots { display: flex; gap: 36px; margin-bottom: 40px; }
   .dot { width: 12px; height: 12px; border-radius: 50%; background: #333; transition: .15s; }
   .dot.on { background: #fff; }
   
-  /* Başlık */
-  .pin-title { font-size: 24px; font-weight: 700; margin-bottom: 60px; letter-spacing: 0.5px; }
+  .pin-title { font-size: 26px; font-weight: 600; margin-bottom: 50px; }
   
-  /* Tuş Takımı */
-  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; max-width: 340px; gap: 15px; }
-  .key { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 400; color: #fff; cursor: pointer; border-radius: 50%; transition: background 0.2s; }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; max-width: 330px; gap: 20px 0; }
+  .key { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 400; color: #fff; cursor: pointer; border-radius: 50%; transition: background 0.2s; }
   .key:active { background: #1A1A1C; }
-  .key.ic { font-size: 26px; color: #fff; border: 2px solid #fff; border-radius: 12px; width: 30px; height: 30px; margin: 0 auto; align-self: center;}
-  .key.empty { pointer-events: none; }
+  .key .ic { font-size: 26px; color: #fff; }
+  .key .face-id { border: 2px solid #fff; border-radius: 8px; width: 30px; height: 30px; display:flex; align-items:center; justify-content:center;}
+  .key .backspace { border: 2px solid #fff; border-radius: 8px; width: 32px; height: 26px; display:flex; align-items:center; justify-content:center; font-size: 18px;}
 
   /* ORTAK ALANLAR */
   .topbar { display:flex; align-items:center; justify-content:space-between; padding:8px 20px;}
-  .avatar { width:44px; height:44px; border-radius:50%; border:1px solid #333; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:500; cursor:pointer; transition:0.2s; background: #111;}
-  .avatar:active { background:#222; }
+  .avatar { width:44px; height:44px; border-radius:50%; border:1px solid #333; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:500; cursor:pointer; background: #111;}
   .ticons { display:flex; gap:12px;}
   .cicon { width:44px; height:44px; border-radius:50%; background:#1A1A1C; display:flex; align-items:center; justify-content:center; font-size:18px;}
-  
   .svg-icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   
   .balLabel { color:var(--text2); font-size:15px; margin-top:20px; padding:0 20px;}
@@ -103,68 +97,58 @@
   .tab.on { color:#fff; }
   .tab.on .svg-icon { stroke: #fff; }
   
-  /* YÜZEN BUTON (FAB) */
+  /* YÜZEN BUTON */
   .fab { position:absolute; right:20px; bottom:100px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #E6007E, #7A2FF2); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(230,0,126,0.4); cursor:pointer; z-index:15; color:#fff;}
   .fab .bdg { position:absolute; top:-2px; right:-2px; background:#7A2FF2; border-radius:50%; min-width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; border:2px solid #000;}
 
-  /* AI CHAT EKRANI (BİREBİR GÖRSEL) */
+  /* AI CHAT EKRANI */
   #ai_chat_screen { background: #09090B; display: flex; flex-direction: column; }
-  
-  /* Header */
   .ai-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; margin-top: 10px;}
-  .ai-header .closeBtn { width:44px; height:44px; border-radius:50%; background:#111; display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer;}
+  .ai-header .closeBtn { width:44px; height:44px; border-radius:50%; background:#111; border: 1px solid #222; display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer; color: #fff;}
   .ai-header .right { display: flex; gap: 10px; }
   .ai-header .plusBtn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer;}
   .ai-header .listBtn { width: 70px; height: 44px; border-radius: 22px; border: 1px solid #333; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 16px; position: relative; cursor: pointer;}
   .ai-header .listBtn .badge { position: absolute; top: -5px; right: -5px; background: var(--accent); width: 20px; height: 20px; border-radius: 50%; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid #09090B;}
   
-  /* AI İçerik Alanı */
   .ai-content { flex: 1; overflow-y: auto; padding: 0 20px 140px; display: flex; flex-direction: column;}
+  .ai-greeting { font-size: 26px; font-weight: 700; line-height: 1.2; margin-top: 20px; margin-bottom: 30px; color: #fff;}
   
-  .ai-greeting { font-size: 28px; font-weight: 700; line-height: 1.2; margin-top: 20px; margin-bottom: 40px;}
-  
-  /* Öneri Balonları */
   .suggestions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 30px;}
-  .sugBtn { background: #141416; border: 1px solid #2A2A2E; color: #ddd; padding: 16px 20px; border-radius: 20px; font-size: 15px; cursor: pointer; text-align: left; line-height: 1.4; transition: 0.2s;}
+  .sugBtn { background: #1A1A1C; border: 1px solid #2A2A2E; color: #ddd; padding: 16px 20px; border-radius: 16px; font-size: 15px; cursor: pointer; text-align: left; line-height: 1.4; transition: 0.2s; width: 100%;}
   .sugBtn:active { background: #222; }
   
-  /* Sohbet Mesajları (Yapay Zeka) */
   .chat-messages { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;}
   .msg-user { background: #1A1A1C; color: #fff; padding: 16px 20px; border-radius: 20px; border-bottom-right-radius: 4px; align-self: flex-end; max-width: 85%; font-size: 15px; line-height: 1.4; }
-  
   .msg-ai-loading { display: flex; align-items: center; gap: 10px; color: #888; font-size: 14px; margin-top: 10px;}
   .msg-ai-loading .icon { font-size: 18px; animation: pulse 1.5s infinite; }
-  
   .msg-ai-response { margin-top: 20px; color: #fff; font-size: 15px; line-height: 1.6;}
   .msg-ai-actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; color: #666; font-size: 18px;}
   .msg-ai-actions .time { font-size: 12px; color: #555; margin-left: auto;}
   
-  /* Alt Input Alanı */
   .ai-input-area { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px 20px; background: #09090B;}
-  .ai-input-box { border: 1px solid #2A2A2E; border-radius: 20px; padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; background: #141416;}
+  .ai-input-box { border: 1px solid #2A2A2E; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #141416;}
   .ai-input-box input { background: transparent; border: none; color: #fff; font-size: 16px; outline: none; padding: 4px;}
   .ai-input-box .bottom { display: flex; justify-content: space-between; align-items: center;}
-  .ai-input-box .tools { display: flex; gap: 16px; color: #888; font-size: 22px;}
-  .ai-input-box .voiceBtn { background: linear-gradient(135deg, #E6007E, #7A2FF2); color: #fff; border: none; padding: 10px 20px; border-radius: 24px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer;}
+  .ai-input-box .tools { display: flex; gap: 20px; color: #888; font-size: 20px;}
+  .ai-input-box .voiceBtn { background: linear-gradient(135deg, #E6007E, #7A2FF2); color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer;}
   
   .legal-text { text-align: center; color: #666; font-size: 11px; line-height: 1.4; margin-top: 16px; padding: 0 10px;}
 
   /* TAWK.TO GİZLİ EKRAN */
   #tawk_screen { background: #141416; z-index: 100; }
   #tawk_6b00a78bdf869c3c91429e71 { width: 100%; height: 100%; border: none; }
-  
-  /* Tawk.to varsayılan balonunu gizle */
-  .tawk-min-container { display: none !important; }
-  iframe[title="chat widget"] { display: none !important; }
+
+  /* Tawk.to'nun kendi kendine açılmasını ve balonlarını %100 engelleyen CSS */
+  iframe[title="chat widget"], .tawk-min-container, .tawk-max-container { display: none !important; opacity: 0 !important; pointer-events: none !important; }
 </style>
 </head>
 <body>
 <div class="phone">
 
-  <!-- 1. GİRİŞ EKRANI -->
+  <!-- 1. GİRİŞ EKRANI (YENİ) -->
   <div class="screen active" id="pin">
     <div class="statusbar">
-      <span id="clock1">20:01</span>
+      <span id="clock1">15:33</span>
       <div class="notch"></div>
       <span class="right">📶 5G 🔋</span>
     </div>
@@ -191,16 +175,19 @@
         <div class="key" onclick="pinPress('7')">7</div>
         <div class="key" onclick="pinPress('8')">8</div>
         <div class="key" onclick="pinPress('9')">9</div>
-        <div class="key" onclick="pinBack()"><div class="ic">⌫</div></div>
+        
+        <!-- Silme İkonu -->
+        <div class="key" onclick="pinBack()"><div class="backspace">⌫</div></div>
         <div class="key" onclick="pinPress('0')">0</div>
-        <div class="key empty"><div class="ic" style="border:none;">😊</div></div>
+        <!-- Yüz Tanıma İkonu -->
+        <div class="key" onclick="unlock()"><div class="face-id">☺</div></div>
       </div>
     </div>
   </div>
 
   <!-- 2. ANA EKRAN (HOME) -->
   <div class="screen" id="home">
-    <div class="statusbar"><span id="clock2">20:01</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span id="clock2">15:33</span><span class="right">📶 5G 🔋</span></div>
     <div class="scroll">
       <div class="topbar">
         <div class="avatar" onclick="showScreen('profile')">AR</div>
@@ -236,10 +223,10 @@
       </div>
     </div>
     
-    <!-- Sohbet Butonu (Artık AI Chat'i Açıyor) -->
-    <div class="fab" onclick="openAIChat()">
+    <!-- Mor Buton AI Chat Ekranını Açar -->
+    <div class="fab" onclick="showScreen('ai_chat_screen')">
       <svg class="svg-icon" style="width:26px;height:26px;stroke:#fff;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-      <div class="bdg">5</div>
+      <div class="bdg">4</div>
     </div>
     
     <div class="tabbar-wrapper">
@@ -253,9 +240,8 @@
 
   <!-- 3. AI CHAT EKRANI (GÖRSELDEKİ BİREBİR) -->
   <div class="screen" id="ai_chat_screen">
-    <div class="statusbar"><span id="clockAI">20:01</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span id="clockAI">15:33</span><span class="right">📶 5G 🔋</span></div>
     
-    <!-- Header -->
     <div class="ai-header">
       <div class="closeBtn" onclick="showScreen('home')">✕</div>
       <div class="right">
@@ -264,22 +250,18 @@
       </div>
     </div>
 
-    <!-- İçerik -->
     <div class="ai-content" id="aiContent">
       <div class="ai-greeting">Was willst Du<br>heute erreichen?</div>
       
-      <!-- Öneri Butonları -->
       <div class="suggestions" id="aiSuggestions">
         <div class="sugBtn" onclick="askAI('Gibt es wiederkehrende Kosten, die überprüft werden müssen?')">Gibt es wiederkehrende Kosten, die überprüft werden müssen?</div>
         <div class="sugBtn" onclick="askAI('Meine Karte nur für Online-Zahlungen nutzen')">Meine Karte nur für Online-Zahlungen nutzen</div>
         <div class="sugBtn" onclick="askAI('Wie kann ich meinen Transaktionen Belege beifügen?')">Wie kann ich meinen Transaktionen Belege beifügen?</div>
       </div>
 
-      <!-- Mesaj Alanı (Gizli başlar, soru sorulunca görünür) -->
       <div class="chat-messages" id="chatMessages" style="display:none;"></div>
     </div>
 
-    <!-- Alt Input Alanı -->
     <div class="ai-input-area">
       <div class="ai-input-box">
         <input type="text" id="aiInput" placeholder="Stell eine Frage ..." onkeydown="if(event.key==='Enter') sendAIMessage()">
@@ -288,7 +270,7 @@
             <span>📎</span>
             <span>🎤</span>
           </div>
-          <button class="voiceBtn" onclick="liveSupport()">📊 Reden</button>
+          <button class="voiceBtn" onclick="liveSupport()">🎤 Reden</button>
         </div>
       </div>
       <div class="legal-text">
@@ -297,89 +279,21 @@
     </div>
   </div>
 
-  <!-- 4. İŞLEMLER (Tüm sekmeler çalışır) -->
-  <div class="screen" id="txs">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px 8px">
-      <div style="font-size:30px;font-weight:700">Transaktionen</div>
-    </div>
-    <div class="scroll" style="padding:0 20px;">
-      <div style="color:#888;font-size:12px;font-weight:700;letter-spacing:1px;margin:18px 0 6px">HEUTE, 23 NOVEMBER</div>
-      <div class="card" style="margin:0;padding:4px 16px" id="txToday"></div>
-      <div style="color:#888;font-size:12px;font-weight:700;letter-spacing:1px;margin:22px 0 6px">ANFANG DES MONATS</div>
-      <div class="card" style="margin:0;padding:4px 16px" id="txMonth"></div>
-    </div>
-  </div>
-
-  <!-- 5. KONTEN -->
-  <div class="screen" id="konten">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar">
-      <div class="avatar" onclick="showScreen('profile')">AR</div>
-    </div>
-    <div style="padding:20px 20px 0;"><div style="font-size:30px;font-weight:700">Konten</div></div>
-    <div class="scroll">
-      <div class="card" style="margin:20px 20px 0; padding-bottom: 0;">
-        <div class="cardHead"><div class="balLabel" style="margin:0;">Gesamtsaldo</div></div>
-        <div class="balValue" style="padding:0; font-size:38px;">137,69 €</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6. AUSGABEN -->
-  <div class="screen" id="ausgaben">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
-    <div style="padding:20px;"><div style="font-size:30px;font-weight:700">Ausgaben</div></div>
-  </div>
-
-  <!-- 7. EINNAHMEN -->
-  <div class="screen" id="einnahmen">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="avatar" onclick="showScreen('profile')">AR</div></div>
-    <div style="padding:20px;"><div style="font-size:30px;font-weight:700">Einnahmen</div></div>
-  </div>
-
-  <!-- 8. MEIN UNTERNEHMEN -->
-  <div class="screen" id="mehr">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="closeBtn" onclick="showScreen('home')">✕</div>
-    <div class="sectionTitle">Mein Unternehmen</div>
-    <div class="scroll">
-        <div class="menuGroup" style="margin-top:20px;">
-            <div class="menuItem" onclick="showScreen('profile')">Persönliche Informationen</div>
-        </div>
-    </div>
-  </div>
-
-  <!-- 9. PROFİL -->
-  <div class="screen" id="profile">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
-    <div class="topbar"><div class="closeBtn" onclick="showScreen('home')">‹</div></div>
-    <div class="profile-header">
-        <div class="profile-avatar">AR</div>
-        <div class="profile-name">Atakan Rallas</div>
-    </div>
-    <div class="logout-btn" onclick="showScreen('pin')">Abmelden</div>
-  </div>
-
-  <!-- 10. TAWK.TO CANLI DESTEK GİZLİ EKRANI -->
+  <!-- 4. TAWK.TO CANLI DESTEK GİZLİ EKRANI -->
   <div class="screen" id="tawk_screen">
-    <div class="statusbar"><span>20:01</span><span class="right">📶 5G 🔋</span></div>
+    <div class="statusbar"><span>15:33</span><span class="right">📶 5G 🔋</span></div>
     <div class="topbar">
         <div class="closeBtn" onclick="showScreen('ai_chat_screen')">‹</div>
-        <div style="font-size:16px; font-weight:600; color:#fff;">Live Chat</div>
+        <div style="font-size:16px; font-weight:600; color:#fff;">Live Support</div>
         <div style="width:44px;"></div>
     </div>
-    <!-- Tawk embedded iframe -->
     <div id='tawk_6b00a78bdf869c3c91429e71' style="flex:1; width:100%; height:100%;"></div>
   </div>
 
 </div>
 
 <script>
-  // --- İşlem Verileri (Ekran görüntüsüne göre güncellendi) ---
+  // --- Veri ve Zaman ---
   const txList = [
     {name:'Fortune Real Estate G...', amt:-3250.00, date:'19:17', group:'today', dir:'out'},
     {name:'Landeshauptkasse Berlin', amt:20, date:'06:10', group:'today', dir:'in'},
@@ -393,31 +307,19 @@
   }
 
   function txHtml(t){
-    return `<div class="tx">
-      <div class="txIcon"><svg class="svg-icon" viewBox="0 0 24 24">${t.dir === 'in' ? '<line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline>' : '<line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>'}</svg></div>
-      <div class="txName">${t.name}</div>
-      <div class="txRight">
-        <div class="txAmt ${t.dir === 'in' ? 'in' : ''}">${money(t.amt)}</div>
-        <div class="txDate">${t.date}</div>
-      </div>
-    </div>`;
+    return `<div class="tx"><div class="txIcon"><svg class="svg-icon" viewBox="0 0 24 24">${t.dir === 'in' ? '<line x1="17" y1="7" x2="7" y2="17"></line><polyline points="17 17 7 17 7 7"></polyline>' : '<line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>'}</svg></div><div class="txName">${t.name}</div><div class="txRight"><div class="txAmt ${t.dir === 'in' ? 'in' : ''}">${money(t.amt)}</div><div class="txDate">${t.date}</div></div></div>`;
   }
 
-  document.getElementById('homeTx').innerHTML = txList.slice(0,3).map(txHtml).join('');
+  document.getElementById('homeTx').innerHTML = txList.map(txHtml).join('');
 
-  // --- Saat Güncellemesi ---
   function updateClock(){
     let now = new Date();
-    let h = String(now.getHours()).padStart(2, '0');
-    let m = String(now.getMinutes()).padStart(2, '0');
-    let timeStr = h + ':' + m;
-    let clocks = document.querySelectorAll('[id^="clock"]');
-    clocks.forEach(c => c.innerText = timeStr);
+    let timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    document.querySelectorAll('[id^="clock"]').forEach(c => c.innerText = timeStr);
   }
   setInterval(updateClock, 1000);
   updateClock();
 
-  // --- PIN İşlemleri ---
   let entered = '';
   function pinPress(d){
     if(entered.length >= 4) return;
@@ -427,68 +329,37 @@
   }
   function pinBack(){ entered = entered.slice(0, -1); renderDots(); }
   function renderDots(){
-    const ds = document.querySelectorAll('#pinDots .dot');
-    ds.forEach((d, i) => d.classList.toggle('on', i < entered.length));
+    document.querySelectorAll('#pinDots .dot').forEach((d, i) => d.classList.toggle('on', i < entered.length));
   }
-  function unlock(){ 
-    entered = ''; renderDots(); showScreen('home'); 
-  }
+  function unlock(){ entered = ''; renderDots(); showScreen('home'); }
 
-  // --- Navigasyon ---
   function showScreen(id){
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
 
   // --- AI Chat Logic ---
-  function openAIChat() {
-    showScreen('ai_chat_screen');
-    // Reset AI UI
-    document.getElementById('aiSuggestions').style.display = 'flex';
-    document.getElementById('chatMessages').style.display = 'none';
-    document.getElementById('chatMessages').innerHTML = '';
-    document.getElementById('aiInput').value = '';
-  }
-
   function askAI(question) {
-    // Hide suggestions, show chat
     document.getElementById('aiSuggestions').style.display = 'none';
     let chatBox = document.getElementById('chatMessages');
     chatBox.style.display = 'flex';
-    
-    // Add User Message
     chatBox.innerHTML = `<div class="msg-user">${question}</div>`;
     
-    // Add Loading State
     let loadingId = 'loading-' + Date.now();
-    chatBox.innerHTML += `
-      <div id="${loadingId}" class="msg-ai-loading">
-        <span class="icon">✨</span> Anfrage wird bearbeitet...
-      </div>`;
+    chatBox.innerHTML += `<div id="${loadingId}" class="msg-ai-loading"><span class="icon">✨</span> Anfrage wird bearbeitet...</div>`;
 
-    // Simulate AI Thinking
     setTimeout(() => {
       document.getElementById(loadingId).remove();
+      let timeStr = String(new Date().getHours()).padStart(2, '0') + ':' + String(new Date().getMinutes()).padStart(2, '0');
       
-      // Add AI Response (Birebir Görseldeki Metin)
-      let now = new Date();
-      let timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-      
-      let responseHtml = `
-        <div style="display:flex; justify-content:space-between; align-items:center; color:#888; font-size:14px; cursor:pointer;">
-           7 Befehle ausgeführt <span>⌄</span>
-        </div>
+      chatBox.innerHTML += `
+        <div style="display:flex; justify-content:space-between; align-items:center; color:#888; font-size:14px; cursor:pointer; margin-top:10px;">7 Befehle ausgeführt <span>⌄</span></div>
         <div class="msg-ai-response">
           Ich sehe aktuell keine offenen Ausgangsrechnungen in Finom – damit gibt es im Moment keine wiederkehrenden Forderungen, die bei Kunden nachverfolgt werden müssten.<br><br>
           Wenn du mit „wiederkehrende Kosten“ eher regelmäßige Abbuchungen oder laufende Ausgaben meinst, kann ich das direkt für dich prüfen. Soll ich deine wiederkehrenden Zahlungen der letzten 3 vollen Monate analysieren?
         </div>
-        <div class="msg-ai-actions">
-          <span>📋</span> <span>👍</span> <span>👎</span> <span class="time">${timeStr}</span>
-        </div>
+        <div class="msg-ai-actions"><span>📋</span> <span>👍</span> <span>👎</span> <span class="time">${timeStr}</span></div>
       `;
-      chatBox.innerHTML += responseHtml;
-      
-      // Scroll to bottom
       document.getElementById('aiContent').scrollTop = document.getElementById('aiContent').scrollHeight;
     }, 1500);
   }
@@ -507,18 +378,17 @@
         Tawk_API.maximize();
     }
   }
-
-  // Tawk.to Gizleme (Sadece bizim butonumuz görünsün)
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_6b00a78bdf869c3c91429e71';
-  Tawk_API.onLoad = function(){
-      // Tawk'ın kendi balonlarını gizle
-      Tawk_API.hideWidget(); 
-  };
 </script>
 
-<!--Start of Tawk.to Script-->
+<!-- Tawk.to Script -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_6b00a78bdf869c3c91429e71';
+
+// Tawk.to'nun kendi kendine açılmasını ve balonunu engelle
+Tawk_API.onLoad = function(){
+    Tawk_API.hideWidget(); 
+};
+
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
@@ -527,7 +397,6 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);})();
 </script>
-<!--End of Tawk.to Script-->
 
 </body>
 </html>
